@@ -4,8 +4,552 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReTro</title>
+    <!-- Tailwind and daisy UI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google font Mulish and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <style>
+    *{padding: 0;margin: 0;box-sizing: border-box;}
+    .inter{font-family: "Inter", sans-serif;font-optical-sizing: auto;font-style: normal;font-variation-settings:"slnt" 0;}
+    .mulish{font-family: "Mulish", sans-serif;font-optical-sizing: auto;font-style: normal;}
+    .avatar.online:before{top: 0; right: 0; padding: 5px;}
+    </style>
 </head>
 <body>
-    
+    <header class="container m-auto max-w-[1170px]">
+        <!-- nav section -->
+        <section class="my-[50px]">
+            <div class="navbar p-0 bg-base-100">
+                <div class="navbar-start">
+                  <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </div>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 space-y-5">
+                        <div class="tooltip" data-tip="Home">
+                            <button  class="btn rounded-full p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="tooltip" data-tip="Tooltip">
+                            <button title="Tooltip" class="btn rounded-full p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                                </svg>                          
+                            </button>
+                        </div>
+                        <div class="tooltip" data-tip="User">
+                            <button title="Users" class="btn rounded-full p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="tooltip" data-tip="Flag">
+                            <button title="Flag" class="btn rounded-full p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" />
+                                </svg>  
+                            </button>
+                        </div>
+                    </ul>
+                  </div>
+                  <h1 class="text-[#12132D] text-[36px] font-black mulish">ReTro</h1>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-center hidden lg:flex">
+                        <ul class="menu menu-horizontal px-1 flex gap-[12px]">
+                            <div class="tooltip" data-tip="Home">
+                                <button  class="btn rounded-full p-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="tooltip" data-tip="Tooltip">
+                                <button class="btn rounded-full p-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                                    </svg>                          
+                                </button>
+                            </div>
+                            <div class="tooltip" data-tip="User">
+                                <button class="btn rounded-full p-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="tooltip" data-tip="Flag">
+                                <button class="btn rounded-full p-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" />
+                                    </svg>  
+                                </button>
+                            </div>
+                        </ul>
+                    </div>
+                  <button class="text-[20px] font-bold px-[40px] py-[15.5px] text-white bg-[#797DFC] rounded-[50px] inter ml-[24px]">Sign In</button>
+                </div>
+            </div>
+        </section>
+        <!-- hero section -->
+        <section>
+            <div class=" bg-[#12132D] rounded-[32px] p-[100px] bg-no-repeat bg-cover" style="background-image: url(images/bgbanner.png);">
+                <div class=""></div>
+                <div class="flex justify-between text-white">
+                  <div class="">
+                    <h1 class="text-[64px] font-black mulish text-[#FFFFFF]">Welcome to the <br> <span>ReTro</span> Forum</h1>
+                    <p class="mulish font-medium text-[20px] mt-[20px] mb-[32px] text-[#D2D2D7] max-w-[455px]">Share your favorite opinion and win and wp forum coffee mug!</p>
+                    <div>
+                        <input placeholder="Search here anything" class="mulish pl-[20px] w-[400px] h-[56px] rounded-[50px] text-[#818388]" type="text">
+                        <button class="w-[121px] h-[44px] bg-[#797DFC] rounded-[45px] ml-[-132px] mulish font-bold">Search</button>
+                    </div>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="flex flex-col gap-[24px] bg-[#FFFFFF] text-[#414257] p-[48px] rounded-[32px] justify-center">
+                        <div class="flex justify-between gap-[56px]">
+                            <h2 class="mulish font-medium text-[24px]">Registered Users</h2>
+                            <h3 class="mulish font-medium text-[24px]">01</h3>
+                        </div>
+                        <div class="flex justify-between gap-[56px]">
+                            <h2 class="mulish font-medium text-[24px]">Forum</h2>
+                            <h3 class="mulish font-medium text-[24px]">05</h3>
+                        </div>
+                        <div class="flex justify-between gap-[56px]">
+                            <h2 class="mulish font-medium text-[24px]">Topics</h2>
+                            <h3 class="mulish font-medium text-[24px]">01</h3>
+                        </div>
+                        <div class="flex justify-between gap-[56px]">
+                            <h2 class="mulish font-medium text-[24px]">Replies</h2>
+                            <h3 class="mulish font-medium text-[24px]">01</h3>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </section>
+    </header>
+    <main class="container m-auto max-w-[1170px]">
+        <section>
+            <div class="text-center w-[691px] m-auto mt-[100px] mb-[48px]">
+                <h1 class="mulish font-black text-[40px] text-[#12132D]">Let’s Discuss</h1>
+                <p class="inter font-normal text-[18px] text-[#717181] mt-[20px]">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
+            </div>
+        </section>
+        <section>
+            <div class="grid grid-cols-12 gap-[24px]">
+                <div class="col-span-8 space-y-[24px]">
+                    <div class="bg-[#F3F3F5] p-[40px] rounded-[24px] flex gap-[24px] justify-center hover:bg-[#F2F2FF]">
+                        <div>
+                            <div class="indicator">
+                                <span class="indicator-item badge badge-success border-[3px] border-[#FFFFFF] h-[23px]"></span> 
+                                <div class="grid h-[72px] w-[72px] bg-base-300 place-items-center rounded-2xl"><img class="rounded-2xl h-[72px] w-[72px]" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" /></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex gap-[20px]">
+                                <h1 class="text-[14px] font-medium inter"># Music</h1>
+                                <h2 class="text-[14px] font-medium inter">Author : Awlad Hossain</h2>
+                            </div>
+                            <div class="border-dashed border-b-[2px] border-[#BABACA]">
+                                <h1 class="mulish font-bold text-[20px] mt-[12px] mb-[16px]">10 Kids Unaware of Their Halloween Costume</h1>
+                                <p class="max-w-[569px] mb-[20px] inter text-[16px] font-normal text-[#6C6D7D]">It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
+                            </div>
+                            <div class="flex justify-between mt-[20px]">
+                                <div class="flex max-w-[283px] gap-[25px]">
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                                          </svg>
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                            </svg> 
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                            </svg>
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img src="images/email-1.png" alt="email">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[#F3F3F5] p-[40px] rounded-[24px] flex gap-[24px] justify-center hover:bg-[#F2F2FF]">
+                        <div>
+                            <div class="indicator">
+                                <span class="indicator-item badge badge-success border-[3px] border-[#FFFFFF] h-[23px]"></span> 
+                                <div class="grid h-[72px] w-[72px] bg-base-300 place-items-center rounded-2xl"><img class="rounded-2xl h-[72px] w-[72px]" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" /></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex gap-[20px]">
+                                <h1 class="text-[14px] font-medium inter"># Music</h1>
+                                <h2 class="text-[14px] font-medium inter">Author : Awlad Hossain</h2>
+                            </div>
+                            <div class="border-dashed border-b-[2px] border-[#BABACA]">
+                                <h1 class="mulish font-bold text-[20px] mt-[12px] mb-[16px]">10 Kids Unaware of Their Halloween Costume</h1>
+                                <p class="max-w-[569px] mb-[20px] inter text-[16px] font-normal text-[#6C6D7D]">It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
+                            </div>
+                            <div class="flex justify-between mt-[20px]">
+                                <div class="flex max-w-[283px] gap-[25px]">
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                                          </svg>
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                            </svg> 
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                            </svg>
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img src="images/email-1.png" alt="email">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[#F3F3F5] p-[40px] rounded-[24px] flex gap-[24px] justify-center hover:bg-[#F2F2FF]">
+                        <div>
+                            <div class="indicator">
+                                <span class="indicator-item badge badge-success border-[3px] border-[#FFFFFF] h-[23px]"></span> 
+                                <div class="grid h-[72px] w-[72px] bg-base-300 place-items-center rounded-2xl"><img class="rounded-2xl h-[72px] w-[72px]" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" /></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex gap-[20px]">
+                                <h1 class="text-[14px] font-medium inter"># Music</h1>
+                                <h2 class="text-[14px] font-medium inter">Author : Awlad Hossain</h2>
+                            </div>
+                            <div class="border-dashed border-b-[2px] border-[#BABACA]">
+                                <h1 class="mulish font-bold text-[20px] mt-[12px] mb-[16px]">10 Kids Unaware of Their Halloween Costume</h1>
+                                <p class="max-w-[569px] mb-[20px] inter text-[16px] font-normal text-[#6C6D7D]">It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
+                            </div>
+                            <div class="flex justify-between mt-[20px]">
+                                <div class="flex max-w-[283px] gap-[25px]">
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                                          </svg>
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                            </svg> 
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                            </svg>
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img src="images/email-1.png" alt="email">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[#F3F3F5] p-[40px] rounded-[24px] flex gap-[24px] justify-center hover:bg-[#F2F2FF]">
+                        <div>
+                            <div class="indicator">
+                                <span class="indicator-item badge badge-success border-[3px] border-[#FFFFFF] h-[23px]"></span> 
+                                <div class="grid h-[72px] w-[72px] bg-base-300 place-items-center rounded-2xl"><img class="rounded-2xl h-[72px] w-[72px]" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" /></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex gap-[20px]">
+                                <h1 class="text-[14px] font-medium inter"># Music</h1>
+                                <h2 class="text-[14px] font-medium inter">Author : Awlad Hossain</h2>
+                            </div>
+                            <div class="border-dashed border-b-[2px] border-[#BABACA]">
+                                <h1 class="mulish font-bold text-[20px] mt-[12px] mb-[16px]">10 Kids Unaware of Their Halloween Costume</h1>
+                                <p class="max-w-[569px] mb-[20px] inter text-[16px] font-normal text-[#6C6D7D]">It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
+                            </div>
+                            <div class="flex justify-between mt-[20px]">
+                                <div class="flex max-w-[283px] gap-[25px]">
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                                          </svg>
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                            </svg> 
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                            </svg>
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img src="images/email-1.png" alt="email">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[#F3F3F5] p-[40px] rounded-[24px] flex gap-[24px] justify-center hover:bg-[#F2F2FF]">
+                        <div>
+                            <div class="indicator">
+                                <span class="indicator-item badge badge-success border-[3px] border-[#FFFFFF] h-[23px]"></span> 
+                                <div class="grid h-[72px] w-[72px] bg-base-300 place-items-center rounded-2xl"><img class="rounded-2xl h-[72px] w-[72px]" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" /></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex gap-[20px]">
+                                <h1 class="text-[14px] font-medium inter"># Music</h1>
+                                <h2 class="text-[14px] font-medium inter">Author : Awlad Hossain</h2>
+                            </div>
+                            <div class="border-dashed border-b-[2px] border-[#BABACA]">
+                                <h1 class="mulish font-bold text-[20px] mt-[12px] mb-[16px]">10 Kids Unaware of Their Halloween Costume</h1>
+                                <p class="max-w-[569px] mb-[20px] inter text-[16px] font-normal text-[#6C6D7D]">It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
+                            </div>
+                            <div class="flex justify-between mt-[20px]">
+                                <div class="flex max-w-[283px] gap-[25px]">
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                                          </svg>
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                            </svg> 
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                            </svg>
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img src="images/email-1.png" alt="email">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[#F3F3F5] p-[40px] rounded-[24px] flex gap-[24px] justify-center hover:bg-[#F2F2FF]">
+                        <div>
+                            <div class="indicator">
+                                <span class="indicator-item badge badge-success border-[3px] border-[#FFFFFF] h-[23px]"></span> 
+                                <div class="grid h-[72px] w-[72px] bg-base-300 place-items-center rounded-2xl"><img class="rounded-2xl h-[72px] w-[72px]" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" /></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex gap-[20px]">
+                                <h1 class="text-[14px] font-medium inter"># Music</h1>
+                                <h2 class="text-[14px] font-medium inter">Author : Awlad Hossain</h2>
+                            </div>
+                            <div class="border-dashed border-b-[2px] border-[#BABACA]">
+                                <h1 class="mulish font-bold text-[20px] mt-[12px] mb-[16px]">10 Kids Unaware of Their Halloween Costume</h1>
+                                <p class="max-w-[569px] mb-[20px] inter text-[16px] font-normal text-[#6C6D7D]">It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
+                            </div>
+                            <div class="flex justify-between mt-[20px]">
+                                <div class="flex max-w-[283px] gap-[25px]">
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                                          </svg>
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                            </svg> 
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                    <div class="flex gap-[12px]">
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                            </svg>
+                                        </span>
+                                        <span class="inter text-[16px] font-normal text-[#6C6D7D]">560</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img src="images/email-1.png" alt="email">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-4">
+                    <div class="bg-[#F3F3F5] p-[24px] rounded-[24px]">
+                        <div class="flex justify-between pb-[17px]">
+                            <h1 class="mulish font-bold text-[20px]">Title</h1>
+                            <div class="flex gap-[8px]">
+                                <div>
+                                    <img src="images/Frame.png" alt="frame">
+                                </div>
+                                <div class="flex text-[16px] font-normal inter text-[#6C6D7D]">
+                                    <span>Mark as read</span>
+                                    (<span>4</span>)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-[16px] pb-3">
+                            <div class="flex items-center justify-between bg-[#FFFFFF] px-[16px] py-[15px] rounded-[16px] ">
+                                <div class="w-[212px]">
+                                    <h1 class="mulish font-semibold text-[16px]">10 Kids Unaware of Their Halloween Costume</h1>
+                                </div>
+                                <div class="flex">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                      </svg>
+                                    </span>
+                                    <span>1,568</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between bg-[#FFFFFF] px-[16px] py-[15px] rounded-[16px]">
+                                <div class="w-[212px]">
+                                    <h1 class="mulish font-semibold text-[16px]">10 Kids Unaware of Their Halloween Costume</h1>
+                                </div>
+                                <div class="flex">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                      </svg>
+                                    </span>
+                                    <span>1,568</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between bg-[#FFFFFF] px-[16px] py-[15px] rounded-[16px]">
+                                <div class="w-[212px]">
+                                    <h1 class="mulish font-semibold text-[16px]">10 Kids Unaware of Their Halloween Costume</h1>
+                                </div>
+                                <div class="flex">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                      </svg>
+                                    </span>
+                                    <span>1,568</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between bg-[#FFFFFF] px-[16px] py-[15px] rounded-[16px]">
+                                <div class="w-[212px]">
+                                    <h1 class="mulish font-semibold text-[16px]">10 Kids Unaware of Their Halloween Costume</h1>
+                                </div>
+                                <div class="flex">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                      </svg>
+                                    </span>
+                                    <span>1,568</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="hero bg-base-200 my-[100px] pt-5 px-5 rounded-[32px] bg-[#12132D]">
+                <div class="hero-content flex-col lg:flex-row-reverse p-0 justify-between">
+                  <img src="images/joinforum.png" class="" />
+                  <div>
+                    <h1 class="mulish font-black text-[40px] text-[#FFFFFF]">Join Our Forum</h1>
+                    <p class="max-w-[652px] mulish font-semibold text-[#D0D0D5] mt-[18px] mb-[32px] leading-[25px]">Share your favorite opinion and win and wp forum coffee mug! Yes, you can run unit tests and view the results directly within the app. </p>
+                    <button class="text-[20px] font-bold px-[40px] py-[15.5px] text-white bg-[#797DFC] rounded-[50px] inter">Registered Now</button>
+                  </div>
+                </div>
+              </div>
+        </section>
+        <section>
+            <div class="text-center w-[691px] m-auto mt-[100px] mb-[48px]">
+                <h1 class="mulish font-black text-[40px] text-[#12132D]">Latest Posts</h1>
+                <p class="inter font-normal text-[18px] text-[#717181] mt-[20px]">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
+            </div>
+            <div>
+                <div class="card card-compact w-96 bg-base-100 border">
+                    <div>
+                        <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" />
+                    </div>
+                    <div class="card-body p-0">
+                        <h2 class="card-title">Shoes!</h2>
+                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <div class="card-actions justify-end">
+                        <button class="btn btn-primary">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
