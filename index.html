@@ -20,15 +20,15 @@
     .avatar.online:before{top: 0; right: 0; padding: 5px;}
     </style>
 </head>
-<body>
+<body class="px-2 md:px-5">
     <header class="container m-auto max-w-[1170px]">
         <!-- nav section -->
-        <section class="my-[50px]">
+        <section class="my-[50px] ">
             <div class="navbar p-0 bg-base-100">
                 <div class="navbar-start">
                   <div class="dropdown">
-                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden p-0 pr-5">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
                     <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 space-y-5">
                         <div class="tooltip" data-tip="Home">
@@ -61,7 +61,7 @@
                         </div>
                     </ul>
                   </div>
-                  <h1 class="text-[#12132D] text-[36px] font-black mulish">ReTro</h1>
+                  <h1 class="text-[#12132D] text-[25px] md:text-[36px] font-black mulish">ReTro</h1>
                 </div>
                 <div class="navbar-end">
                     <div class="navbar-center hidden lg:flex">
@@ -96,40 +96,40 @@
                             </div>
                         </ul>
                     </div>
-                  <button class="text-[20px] font-bold px-[40px] py-[15.5px] text-white bg-[#797DFC] rounded-[50px] inter ml-[24px]">Sign In</button>
+                  <button class="text-[14px] md:text-[20px] font-bold px-[20px] py-[10px] md:px-[40px] md:py-[15.5px] text-white bg-[#797DFC] rounded-[50px] inter ml-[24px]">Sign In</button>
                 </div>
             </div>
         </section>
         <!-- hero section -->
         <section>
-            <div class=" bg-[#12132D] rounded-[32px] p-[100px] bg-no-repeat bg-cover" style="background-image: url(images/bgbanner.png);">
+            <div class=" bg-[#12132D] rounded-[32px] p-[20px] md:p-[100px] bg-no-repeat bg-cover" style="background-image: url(images/bgbanner.png);">
                 <div class=""></div>
-                <div class="flex justify-between text-white">
+                <div class="flex flex-col lg:flex-row justify-between text-white">
                   <div class="">
-                    <h1 class="text-[64px] font-black mulish text-[#FFFFFF]">Welcome to the <br> <span>ReTro</span> Forum</h1>
+                    <h1 class="text-[40px] md:text-[64px] font-black mulish text-[#FFFFFF]">Welcome to the <br> <span>ReTro</span> Forum</h1>
                     <p class="mulish font-medium text-[20px] mt-[20px] mb-[32px] text-[#D2D2D7] max-w-[455px]">Share your favorite opinion and win and wp forum coffee mug!</p>
-                    <div>
-                        <input placeholder="Search here anything" class="mulish pl-[20px] w-[400px] h-[56px] rounded-[50px] text-[#818388]" type="text">
-                        <button class="w-[121px] h-[44px] bg-[#797DFC] rounded-[45px] ml-[-132px] mulish font-bold">Search</button>
+                    <div class="max-w-[400px] flex">
+                        <input placeholder="Search here anything" class="mulish pl-[20px] w-full  h-[56px] rounded-[50px] text-[#818388]" type="text">
+                        <button class="w-[100px] md:w-[121px] h-[44px] bg-[#797DFC] rounded-[45px] md:ml-[-127px] ml-[-105px] mulish font-bold mt-[6px]">Search</button>
                     </div>
                   </div>
-                  <div class="flex items-center">
+                  <div class="flex items-center mt-10 lg:mt-0 justify-center md:justify-start">
                     <div class="flex flex-col gap-[24px] bg-[#FFFFFF] text-[#414257] p-[48px] rounded-[32px] justify-center">
                         <div class="flex justify-between gap-[56px]">
-                            <h2 class="mulish font-medium text-[24px]">Registered Users</h2>
-                            <h3 class="mulish font-medium text-[24px]">01</h3>
+                            <h2 class="mulish font-medium text-[16px] md:text-[24px]">Registered Users</h2>
+                            <h3 class="mulish font-medium text-[16px] md:text-[24px]">01</h3>
                         </div>
                         <div class="flex justify-between gap-[56px]">
-                            <h2 class="mulish font-medium text-[24px]">Forum</h2>
-                            <h3 class="mulish font-medium text-[24px]">05</h3>
+                            <h2 class="mulish font-medium text-[16px] md:text-[24px]">Forum</h2>
+                            <h3 class="mulish font-medium text-[16px] md:text-[24px]">05</h3>
                         </div>
                         <div class="flex justify-between gap-[56px]">
-                            <h2 class="mulish font-medium text-[24px]">Topics</h2>
-                            <h3 class="mulish font-medium text-[24px]">01</h3>
+                            <h2 class="mulish font-medium text-[16px] md:text-[24px]">Topics</h2>
+                            <h3 class="mulish font-medium text-[16px] md:text-[24px]">01</h3>
                         </div>
                         <div class="flex justify-between gap-[56px]">
-                            <h2 class="mulish font-medium text-[24px]">Replies</h2>
-                            <h3 class="mulish font-medium text-[24px]">01</h3>
+                            <h2 class="mulish font-medium text-[16px] md:text-[24px]">Replies</h2>
+                            <h3 class="mulish font-medium text-[16px] md:text-[24px]">01</h3>
                         </div>
                     </div>
                   </div>
@@ -137,7 +137,7 @@
             </div>
         </section>
     </header>
-    <main class="container m-auto max-w-[1170px]">
+    <!-- <main class="container m-auto max-w-[1170px]">
         <section>
             <div class="text-center w-[691px] m-auto mt-[100px] mb-[48px]">
                 <h1 class="mulish font-black text-[40px] text-[#12132D]">Let’s Discuss</h1>
@@ -642,7 +642,7 @@
                 <h1 class="mulish font-light text-[16px] text-[#878895]">2017, All Rights Reserved.</h1>
             </div>
         </section>
-    </footer>
+    </footer> -->
     
 </body>
 </html>
