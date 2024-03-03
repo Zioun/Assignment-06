@@ -106,11 +106,11 @@
                 <div class=""></div>
                 <div class="flex flex-col lg:flex-row justify-between text-white">
                   <div class="">
-                    <h1 class="text-[40px] md:text-[64px] font-black mulish text-[#FFFFFF]">Welcome to the <br> <span>ReTro</span> Forum</h1>
+                    <h1 class="text-[40px] md:text-[64px] font-black mulish text-[#FFFFFF]">Welcome to the <br> <span class="bg-gradient-to-r from-[#777BF8] to-[#343670] text-transparent bg-clip-text">ReTro</span> Forum</h1>
                     <p class="mulish font-medium text-[20px] mt-[20px] mb-[32px] text-[#D2D2D7] max-w-[455px]">Share your favorite opinion and win and wp forum coffee mug!</p>
                     <div class="max-w-[400px] flex">
-                        <input placeholder="Search here anything" class="mulish pl-[20px] w-full  h-[56px] rounded-[50px] text-[#818388]" type="text">
-                        <button class="w-[100px] md:w-[121px] h-[44px] bg-[#797DFC] rounded-[45px] md:ml-[-127px] ml-[-105px] mulish font-bold mt-[6px]">Search</button>
+                        <input id="search-input" placeholder="Search here anything" class="mulish pl-[20px] w-full  h-[56px] rounded-[50px] text-[#818388]" type="text">
+                        <button id="search-btn" class="w-[100px] md:w-[121px] h-[44px] bg-[#797DFC] rounded-[45px] md:ml-[-127px] ml-[-105px] mulish font-bold mt-[6px]">Search</button>
                     </div>
                   </div>
                   <div class="flex items-center mt-10 lg:mt-0 justify-center md:justify-start">
@@ -146,8 +146,9 @@
         </section>
         <section>
             <div class="grid lg:grid-cols-12 gap-[24px]">
-                <div class="lg:col-span-8 space-y-[24px]">
-                    <div class="bg-[#F3F3F5] p-[40px] rounded-[24px] flex flex-col md:flex-row gap-[24px] justify-center hover:bg-[#F2F2FF]">
+                <div id="post-area" class="lg:col-span-8 space-y-[24px]">
+                    <div id="pre-loader" class="flex justify-center -mt-20"><span class="loading loading-spinner loading-lg"></span></div>
+                    <!-- <div class="bg-[#F3F3F5] p-[40px] rounded-[24px] flex flex-col md:flex-row gap-[24px] justify-center hover:bg-[#F2F2FF]">
                         <div>
                             <div class="indicator">
                                 <span class="indicator-item badge badge-success border-[3px] border-[#FFFFFF] h-[23px]"></span> 
@@ -192,11 +193,11 @@
                                     </div>
                                 </div>
                                 <div class="mt-5 md:mt-0">
-                                    <img src="images/email-1.png" alt="email">
+                                    <button><img src="images/email-1.png" alt="email"></button>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="lg:col-span-4">
                     <div class="bg-[#F3F3F5] p-[24px] rounded-[24px]">
@@ -287,8 +288,8 @@
                 <h1 class="mulish font-black text-[30px] md:text-[40px] text-[#12132D]">Latest Posts</h1>
                 <p class="inter font-normal text-[16px] md:text-[18px] text-[#717181] md:mt-[20px]">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
             </div>
-            <div class="grid grid-cols-12 gap-[25px]">
-                <div class="card card-compact w-95 bg-base-100 border p-[24px] col-span-12 md:col-span-6 lg:col-span-4">
+            <div id="latest-post-area" class="grid grid-cols-12 gap-5">
+                <!-- <div class="card card-compact w-95 bg-base-100 border p-[24px] col-span-12 md:col-span-6 lg:col-span-4">
                     <div class="">
                         <img class="rounded-xl" src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Card"/>
                     </div>
@@ -315,63 +316,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card card-compact w-95 bg-base-100 border p-[24px] col-span-12 md:col-span-6 lg:col-span-4">
-                    <div class="">
-                        <img class="rounded-xl" src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Card"/>
-                    </div>
-                    <div class="">
-                        <div class="flex mt-[24px] mb-[12px] gap-[8px]">
-                            <span class="text-[16px] mulish font-normal text-[#717181]">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                              </svg>
-                            </span>
-                            <span class="text-[16px] mulish font-normal text-[#717181]">29 January 2024</span>
-                        </div>
-                        <div>
-                            <h1 class="mulish font-extrabold text-[18px] text-[#12132D]">What will a mars habitat force that impact in our daily life!!!</h1>
-                            <p class="text-[16px] mt-[12px] mb-[16px] mulish font-normal text-[#717181]">Yes, you can run unit tests and view the results directly within the app. </p>
-                        </div>
-                        <div class="flex gap-[16px]">
-                            <div>
-                                <img src="images/Ellipse-1-(1).png" alt="profile">
-                            </div>
-                            <div>
-                                <h2 class="mulish font-bold text-[16px] text-[#12132D]">Cameron Williamson</h2>
-                                <h3 class="text-[14px] mulish font-normal text-[#717181]">Unknown</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card card-compact w-95 bg-base-100 border p-[24px] col-span-12 md:col-span-6 lg:col-span-4">
-                    <div class="">
-                        <img class="rounded-xl" src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Card"/>
-                    </div>
-                    <div class="">
-                        <div class="flex mt-[24px] mb-[12px] gap-[8px]">
-                            <span class="text-[16px] mulish font-normal text-[#717181]">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                              </svg>
-                            </span>
-                            <span class="text-[16px] mulish font-normal text-[#717181]">29 January 2024</span>
-                        </div>
-                        <div>
-                            <h1 class="mulish font-extrabold text-[18px] text-[#12132D]">What will a mars habitat force that impact in our daily life!!!</h1>
-                            <p class="text-[16px] mt-[12px] mb-[16px] mulish font-normal text-[#717181]">Yes, you can run unit tests and view the results directly within the app. </p>
-                        </div>
-                        <div class="flex gap-[16px]">
-                            <div>
-                                <img src="images/Ellipse-1-(1).png" alt="profile">
-                            </div>
-                            <div>
-                                <h2 class="mulish font-bold text-[16px] text-[#12132D]">Cameron Williamson</h2>
-                                <h3 class="text-[14px] mulish font-normal text-[#717181]">Unknown</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
             </div>
         </section>
     </main>
@@ -393,6 +338,7 @@
             </div>
         </section>
     </footer>
-    
+    <!-- JS Link -->
+    <script src="js/main.js"></script>
 </body>
 </html>
