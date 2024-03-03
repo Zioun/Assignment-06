@@ -207,7 +207,9 @@ const preLoader = (loader) => {
     if (loader) {
         preLoaderIcon.classList.remove("hidden");
     } else {
-        preLoaderIcon.classList.add("hidden");
+        setTimeout(() => {
+            preLoaderIcon.classList.add("hidden");
+        }, 2000);
     }
 }
 
