@@ -61,11 +61,11 @@ const fecthPost = async (search) =>{
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                 </svg>
                             </span>
-                            <span class="inter text-[16px] font-normal text-[#6C6D7D]">${postArray.posted_time} <span>m</span></span>
+                            <span class="inter text-[16px] font-normal text-[#6C6D7D]">${postArray.posted_time} <span>min</span></span>
                         </div>
                     </div>
                     <div class="mt-5 md:mt-0 flex justify-center">
-                        <button class="bg-[#10B981] p-2 rounded-full text-white" onclick="markItem('${postArray.title.replace("'", "")}','${postArray.view_count}')"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <button class="bg-[#10B981] p-2 rounded-full text-white" onclick="markItem('${postArray.title.replace("'", "*")}','${postArray.view_count}')"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z" /></svg>
                     </button>
                     </div>
@@ -137,11 +137,11 @@ const fecthPost = async (search) =>{
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                 </svg>
                             </span>
-                            <span class="inter text-[16px] font-normal text-[#6C6D7D]">${postArray.posted_time} <span>m</span></span>
+                            <span class="inter text-[16px] font-normal text-[#6C6D7D]">${postArray.posted_time} <span>min</span></span>
                         </div>
                     </div>
                     <div class="mt-5 md:mt-0 flex justify-center">
-                    <button class="bg-[#10B981] p-2 rounded-full text-white" onclick="markItem('${postArray.title.replace("'", "")}','${postArray.view_count}')"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                    <button class="bg-[#10B981] p-2 rounded-full text-white" onclick="markItem('${postArray.title.replace("'", "*")}','${postArray.view_count}')"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z" />
                   </svg>
                   </button>
@@ -189,7 +189,7 @@ const markItem = (title,view)=>{
     div.className = "flex items-center justify-between bg-[#FFFFFF] px-[16px] py-[15px] rounded-[16px]";
     div.innerHTML = `
     <div class="w-[212px]">
-        <h1 class="mulish font-semibold text-[16px]">${title}</h1>
+        <h1 class="mulish font-semibold text-[16px]">${title.replace("*","'")}</h1>
     </div>
     <div class="flex gap-2">
         <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

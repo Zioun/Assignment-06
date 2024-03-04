@@ -1,2 +1,0 @@
-badge-success
-badge.classList.add("indicator-item badge badge-success border-[3px] border-[#FFFFFF] h-[23px]");
