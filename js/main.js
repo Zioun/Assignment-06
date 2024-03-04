@@ -65,7 +65,9 @@ const fecthPost = async (search) =>{
                         </div>
                     </div>
                     <div class="mt-5 md:mt-0 flex justify-center">
-                    <button onclick="markItem('${postArray.title.replace("'", "")}','${postArray.view_count}')"><img src="images/email-1.png" alt="email"></button>
+                        <button class="bg-[#10B981] p-2 rounded-full text-white" onclick="markItem('${postArray.title.replace("'", "")}','${postArray.view_count}')"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z" /></svg>
+                    </button>
                     </div>
                 </div>
             </div>
@@ -139,7 +141,10 @@ const fecthPost = async (search) =>{
                         </div>
                     </div>
                     <div class="mt-5 md:mt-0 flex justify-center">
-                    <button onclick="markItem('${postArray.title.replace("'", "")}','${postArray.view_count}')"><img src="images/email-1.png" alt="email"></button>
+                    <button class="bg-[#10B981] p-2 rounded-full text-white" onclick="markItem('${postArray.title.replace("'", "")}','${postArray.view_count}')"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z" />
+                  </svg>
+                  </button>
                     </div>
                 </div>
             </div>
@@ -219,7 +224,7 @@ const fatchLatestPost = async () =>{
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
                     </svg>
                 </span>
-                <span class="text-[16px] mulish font-normal text-[#717181]">${post.author?.posted_date || "No Post Date"}</span>
+                <span class="text-[16px] mulish font-normal text-[#717181]">${post.author?.posted_date || "No publish date"}</span>
             </div>
             <div>
                 <h1 class="mulish font-extrabold text-[18px] text-[#12132D]">${post.title}</h1>
@@ -231,7 +236,7 @@ const fatchLatestPost = async () =>{
                 </div>
                 <div>
                     <h2 class="mulish font-bold text-[16px] text-[#12132D]">${post.author.name}</h2>
-                    <h3 class="text-[14px] mulish font-normal text-[#717181]">${post.author?.designation || "Uknone"}</h3>
+                    <h3 class="text-[14px] mulish font-normal text-[#717181]">${post.author?.designation || "Unknown"}</h3>
                 </div>
             </div>
         </div>
